@@ -5,7 +5,8 @@ public class BAI_TAP_HienThiSoChanLe_Use_Thread {
         OddThread oddThread = new OddThread();
         EvenThread evenThread = new EvenThread();
 
-        oddThread.start();
+        //oddThread.start();
+
         evenThread.start();
     }
 }
@@ -17,7 +18,7 @@ class OddThread extends Thread {
             if ((i%2) == 1) {
                 System.out.println(i);
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -33,7 +34,7 @@ class EvenThread extends Thread {
 
         //[Thực hành] Trải nghiệm vòng đời của Thread
         Thread odd = new Thread(new OddThread());
-
+        odd.start();
         try {
             odd.join();
         } catch (InterruptedException e) {

@@ -8,8 +8,8 @@ public class BAI_TAP_NumberGenerator_Use_Runnable {
         Thread thread1 = new Thread(number1);
         Thread thread2 = new Thread(number2);
 
-        //thread1.setPriority(Thread.MAX_PRIORITY);
-        //thread2.setPriority(Thread.MIN_PRIORITY);
+        thread1.setPriority(Thread.MAX_PRIORITY);
+        thread2.setPriority(Thread.MIN_PRIORITY);
 
         thread1.start();
         thread2.start();
