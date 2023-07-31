@@ -4,17 +4,13 @@ public class BAI_TAP_TimSoNguyenTo_Use_Thread {
     public static void main(String[] args) {
         LazyPrimeFactorization lazyPr = new LazyPrimeFactorization();
         OptimizedPrimeFactorization optimized = new OptimizedPrimeFactorization();
-
-        Thread thread1 = new Thread(lazyPr);
-        Thread thread2 = new Thread(optimized);
-
-        thread2.start();
-        thread1.start();
-
+        lazyPr.start();
+        lazyPr.joinEvent();
+        optimized.start();
     }
 }
 
-class LazyPrimeFactorization implements Runnable {
+class LazyPrimeFactorization extends Thread{
     @Override
     public void run() {
         System.out.println("LazyPrimeFactorization");
@@ -28,26 +24,25 @@ class LazyPrimeFactorization implements Runnable {
             }
             if (check) System.out.println(i);
             try {
-                Thread.sleep(100);
+                sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
-}
 
-class OptimizedPrimeFactorization implements Runnable {
-    @Override
-    public void run() {
-
-        Thread lazy = new Thread(new LazyPrimeFactorization());
-//        lazy.start();
+    public void joinEvent() {
         try {
-            lazy.join();
+            join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+}
 
+class OptimizedPrimeFactorization extends Thread {
+    @Override
+    public void run() {
         System.out.println("OptimizedPrimeFactorization");
         for (int i = 2; i <= 30; i++) {
             boolean check = true;
