@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="598.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.server.ServerController">
+    <children>
+      <HBox layoutX="16.0" layoutY="62.0" prefHeight="520.0" prefWidth="573.0" spacing="10.0">
+         <children>
+              <TextArea prefHeight="381.0" prefWidth="155.0" />
+              <VBox fx:id="vBox" prefHeight="509.0" prefWidth="405.0" spacing="10.0">
+                  <children>
+                      <TextArea fx:id="textArea" prefHeight="432.0" prefWidth="405.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextArea>
+                      <TextField fx:id="textField" prefHeight="44.0" prefWidth="405.0" />
+                      <Button fx:id="button" mnemonicParsing="false" onAction="#actionSendButton" prefHeight="38.0" prefWidth="91.0" text="SEND" />
+                  </children>
+              </VBox>
+         </children>
+      </HBox>
+        <Label alignment="CENTER" layoutX="83.0" layoutY="14.0" prefHeight="48.0" prefWidth="440.0" text="MESSAGE SERVER">
+            <font>
+                <Font name="System Bold Italic" size="27.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
